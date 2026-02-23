@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wxmp_archiver"
+version = "0.1.0"
+description = "Archive WeChat Official Account articles offline (Markdown/HTML + local images)"
+requires-python = ">=3.11"
+dependencies = [
+    "playwright>=1.40",
+    "typer[all]>=0.9",
+    "beautifulsoup4>=4.12",
+    "lxml>=4.9",
+    "markdownify>=0.11",
+    "httpx>=0.25",
+    "tenacity>=8.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "pytest-asyncio>=0.21"]
+
+[project.scripts]
+wxmp_archiver = "wxmp_archiver.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["wxmp_archiver*"]
